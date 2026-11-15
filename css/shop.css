@@ -223,3 +223,8 @@ html{scroll-behavior:smooth}
 .sx .pc-vwrap:empty{display:none}
 .sx .modal-b .pc-v{margin-top:4px}
 .sx .ci img{object-fit:cover}
+
+.sx .cat-sec{margin-bottom:48px;scroll-margin-top:96px}
+.sx .cat-h{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.sx .cat-h h2{font-size:clamp(32px,4vw,46px);line-height:1}
+.sx .cat-h span{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}

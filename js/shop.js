@@ -1,5 +1,5 @@
 /* Kebab Express: shop page (catalogue, variant chips, product popup).
-   The cart lives in js/cart.js and checkout is its own page (checkout.html). */
+   The cart lives in js/cart.js and checkout happens inside the cart drawer. */
 (function () {
 	'use strict';
 	var $ = KE.$,
@@ -141,7 +141,7 @@
 			: '';
 		var hot = p.spicy ? '<span class="hot">Spicy</span>' : '';
 		return (
-			'<article class="pc" data-card="' + p.id + '" style="animation-delay:' + Math.min(i, 12) * 60 + 'ms">' +
+			'<article class="pc" data-card="' + p.id + '">' +
 			'<button class="pc-img" type="button" data-act="view" data-id="' + p.id + '" aria-label="View details: ' + esc(p.name) +
 			'"><img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy">' + tag + '</button>' +
 			'<div class="pc-b"><h3 class="disp">' + esc(p.name) + hot + '</h3><p class="pc-d">' + esc(p.desc) + '</p>' +
@@ -165,7 +165,20 @@
 				'<div class="empty"><h3 class="disp">Nothing matches that</h3><p>Try another word or show every dish.</p><button class="btn btn-red" type="button" data-act="clear">Show all dishes</button></div>';
 			return;
 		}
-		out.innerHTML = '<div class="grid">' + list.map(cardHTML).join('') + '</div>';
+		/* one section per category, in menu order (Offers first) */
+		out.innerHTML = CATS.map(function (c) {
+			var rows = list.filter(function (p) {
+				return p.cat === c.id;
+			});
+			if (!rows.length) return '';
+			return (
+				'<section class="cat-sec" id="cat-' + c.id + '" aria-labelledby="cath-' + c.id + '">' +
+				'<div class="cat-h"><h2 class="disp" id="cath-' + c.id + '">' + esc(c.title) + '</h2><span>' +
+				rows.length + (rows.length === 1 ? ' dish' : ' dishes') + '</span></div>' +
+				'<div class="grid">' + rows.map(cardHTML).join('') + '</div></section>'
+			);
+		}).join('');
+		KE.reveal(out, '.pc');
 	}
 
 	/* update only the chips / price / add area of one card so the pop animation does not replay */

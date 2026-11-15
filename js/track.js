@@ -59,7 +59,7 @@
 			'<span class="tk-pill' + (ready ? ' ok' : '') + '" id="tkPill">' + (ready ? (del ? 'Out for delivery' : 'Ready') : 'In progress') + '</span></div>' +
 			'<div class="trk" id="tkTrk" aria-live="polite">' + steps(o) + '</div>' +
 			'<div><div class="rv"><span>' + (del ? 'Deliver to' : 'Pick up at') + '</span><b>' +
-			(del ? esc(f.addr) + '<br>' + esc(f.city) + ', ' + esc(f.zip) : esc(br.name) + '<br>' + esc(br.addr)) + '</b></div>' +
+			(del ? esc(f.addr) + '<br>' + esc([f.city, f.zip].filter(Boolean).join(', ')) : esc(br.name) + '<br>' + esc(br.addr)) + '</b></div>' +
 			'<div class="rv"><span>Estimate</span><b>' + (del ? 'about 35 minutes' : 'about 15 minutes') + '</b></div></div>' +
 			'<h3 class="disp">Your items</h3><div>' + items + '<div class="rv"><span>Total</span><b>' + money(o.t.total) + '</b></div></div>' +
 			'<div class="tk-actions"><a class="btn btn-red" href="shop.html">Order again</a><a class="btn btn-line" style="border-color:var(--ink);color:var(--ink)" href="index.html">Home</a></div></div>'

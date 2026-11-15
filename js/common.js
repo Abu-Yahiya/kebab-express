@@ -37,6 +37,52 @@
 		};
 	};
 
+
+	/* ---------- scroll reveal: cards animate in AND out as they enter/leave the viewport,
+	   sliding up when scrolling down and down when scrolling up ---------- */
+	var rvObs, lastY = window.pageYOffset, dirDown = true;
+	window.addEventListener(
+		'scroll',
+		function () {
+			var y = window.pageYOffset;
+			if (y !== lastY) dirDown = y > lastY;
+			lastY = y;
+		},
+		{ passive: true },
+	);
+	KE.reveal = function (root, selector) {
+		var els = KE.$$(selector, root);
+		if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			els.forEach(function (el) { el.classList.add('sr', 'in'); });
+			return;
+		}
+		if (!rvObs) {
+			rvObs = new IntersectionObserver(
+				function (entries) {
+					entries.forEach(function (en) {
+						var el = en.target;
+						if (en.isIntersecting) {
+							el.classList.add('in');
+						} else {
+							/* leaving: park it on the side it left from so it re-enters smoothly */
+							var above = en.boundingClientRect.top < 0;
+							el.style.setProperty('--rvy', (above ? -36 : 36) + 'px');
+							el.style.setProperty('--d', '0ms');
+							el.classList.remove('in');
+						}
+					});
+				},
+				{ threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+			);
+		}
+		els.forEach(function (el, i) {
+			el.classList.add('sr');
+			el.style.setProperty('--rvy', (dirDown ? 36 : -36) + 'px');
+			el.style.setProperty('--d', (i % 4) * 70 + 'ms');
+			rvObs.observe(el);
+		});
+	};
+
 	/* ---------- header: mobile drawer ---------- */
 	function initHeader() {
 		var burger = KE.$('#burger');

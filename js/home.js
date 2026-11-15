@@ -256,9 +256,7 @@
 								var hot = it.spicy ? ' <span class="hot">Spicy</span>' : '';
 									var vs = it.variants;
 									return (
-										'<div class="mi" style="animation-delay:' +
-										i * 70 +
-										'ms">' +
+										'<div class="mi">' +
 										tag +
 										'<div class="mi-r"><span>' +
 										esc(it.name) +
@@ -291,6 +289,7 @@
 				})
 				.join('') +
 			'</div>';
+		KE.reveal(out, '.mi');
 	}
 
 	function flashAdd(btn) {
@@ -371,6 +370,7 @@
 				);
 			})
 			.join('');
+		KE.reveal(grid, '.spo-c');
 		grid.addEventListener('click', function (e) {
 			var b = e.target.closest('[data-offer]');
 			if (!b) return;

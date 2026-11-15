@@ -14,7 +14,6 @@ Then visit http://localhost:8000.
 ## Structure
 ```
 index.html        Home: hero video, menu, how it works, gallery, locations map, table booking, footer
-checkout.html     Checkout page: details, payment, review, confirmation
 gallery.html      Gallery page (photo grid, Show more, lightbox)
 shop.html         Shop: product cards with size chips, details popup
 css/home.css      Home styles
@@ -23,7 +22,7 @@ js/menu-data.js   Shared menu data (home menu, shop and cart all read it)
 js/dish-art.js    Photos / drawn illustrations for every dish
 js/cart.js        Shared cart: storage, navbar total, View cart bar, drawer
 js/common.js      Shared: cursor follower, mobile menu
-js/checkout.js    Checkout page logic
+js/cart.js        Cart drawer and its checkout form (name, phone, email, address, post code)
 js/gallery.js     Gallery page
 js/home.js        Home: menu filters, lightbox, map pins, booking form
 js/shop.js        Shop: catalogue and product popup
@@ -41,7 +40,7 @@ assets/video      Hero video (slow-motion grill, played at 0.5x)
 - Responsive layouts (desktop, tablet, mobile), keyboard focus styles, reduced-motion support
 
 ## What is simulated
-There is no backend. Booking and checkout only show a confirmation screen; nothing is sent, stored on a server or charged. The basket is kept in `localStorage`. To go live, connect the submit handlers in `js/home.js` (`#bookSubmit`) and `js/checkout.js` (`place()`) to your API and payment provider. Card fields are validated for format only.
+There is no backend. Booking and checkout only show a confirmation screen; nothing is sent, stored on a server or charged. The basket is kept in `localStorage`. To go live, connect the submit handlers in `js/home.js` (`#bookSubmit`) and `js/cart.js` (`placeOrder()`) to your API. Orders are cash on delivery; there is no card payment.
 
 ## Sample content to replace
 Menu items, prices ($), branch names, addresses, phone numbers, opening hours, the map location and the hero video are placeholders. Menu data (used by home, shop and cart) lives in `js/menu-data.js`; gallery photos in `js/gallery.js`. Dish pictures: add a photo to `assets/img` and map it in `PHOTO_BY_NAME` in `js/dish-art.js`.
