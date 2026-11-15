@@ -83,6 +83,16 @@
 		});
 	};
 
+	/* animate every section: headings, cards, forms, footer columns */
+	KE.revealSections = function () {
+		KE.reveal(document, [
+			'.sec-h', '.about .wrap > *', '.how-c', '.how-cta', '.loc-g > *', '.book .wrap > *',
+			'.gpg-banner .wrap > *', '.gpg-count', '.gal-more', '.rv', '.ft-g > div', '.ft-b',
+			'.gal .mosaic'
+		].join(','));
+	};
+	document.addEventListener('DOMContentLoaded', KE.revealSections);
+
 	/* ---------- header: mobile drawer ---------- */
 	function initHeader() {
 		var burger = KE.$('#burger');

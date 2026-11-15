@@ -394,8 +394,7 @@
 		{ n: 'Omar S.', w: 'Station Place', s: 5, t: 'Hot, fast and tasty every time. The falafel plate is underrated.' },
 	];
 	function initReviews() {
-		var track = $('#rvTrack'),
-			dotsEl = $('#rvDots');
+		var track = $('#rvTrack');
 		var star = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.5 5.7 21l1.5-7L2 9.3l7-.8z"/></svg>';
 		track.innerHTML = REVIEWS.map(function (r, i) {
 			return (
@@ -406,83 +405,8 @@
 				'<figcaption><span class="rv-av" aria-hidden="true">' + esc(r.n.charAt(0)) + '</span><span><b>' + esc(r.n) + '</b><small>' + esc(r.w) + '</small></span></figcaption></figure>'
 			);
 		}).join('');
-		var cards = $$('.rv-c', track);
-		var page = 0,
-			pages = 1,
-			timer = 0;
-
-		function perView() {
-			return Math.max(1, Math.round(track.clientWidth / cards[0].getBoundingClientRect().width));
-		}
-		function buildDots() {
-			pages = Math.ceil(cards.length / perView());
-			dotsEl.innerHTML = new Array(pages + 1).join('<button class="rv-d" type="button"></button>');
-			$$('.rv-d', dotsEl).forEach(function (d, i) {
-				d.setAttribute('aria-label', 'Go to reviews page ' + (i + 1));
-				d.addEventListener('click', function () {
-					goTo(i);
-				});
-			});
-			mark();
-		}
-		function mark() {
-			$$('.rv-d', dotsEl).forEach(function (d, i) {
-				d.classList.toggle('on', i === page);
-				d.setAttribute('aria-current', i === page ? 'true' : 'false');
-			});
-		}
-		function goTo(p) {
-			page = (p + pages) % pages;
-			var first = Math.min(page * perView(), cards.length - 1);
-			track.scrollTo({ left: cards[first].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
-			mark();
-		}
-		track.addEventListener(
-			'scroll',
-			KE.debounce(function () {
-				var w = cards[0].getBoundingClientRect().width + 20;
-				var idx = Math.round(track.scrollLeft / w);
-				page = Math.min(pages - 1, Math.round(idx / perView()));
-				mark();
-			}, 80),
-		);
-		$('#rvPrev').addEventListener('click', function () {
-			goTo(page - 1);
-		});
-		$('#rvNext').addEventListener('click', function () {
-			goTo(page + 1);
-		});
-		/* auto-slide: advances every 4.5s, pauses while hovered, touched or keyboard-focused */
-		var paused = false;
-		function stop() {
-			clearInterval(timer);
-			timer = 0;
-		}
-		function play() {
-			stop();
-			timer = setInterval(function () {
-				if (!paused && !document.hidden) goTo(page + 1);
-			}, 4500);
-		}
-		var box = track.parentNode;
-		box.addEventListener('mouseenter', function () { paused = true; });
-		box.addEventListener('mouseleave', function () { paused = false; });
-		box.addEventListener('touchstart', function () { paused = true; }, { passive: true });
-		box.addEventListener('touchend', function () {
-			setTimeout(function () { paused = false; }, 4000);
-		}, { passive: true });
-		box.addEventListener('focusin', function (e) {
-			if (e.target.matches && e.target.matches(':focus-visible')) paused = true;
-		});
-		box.addEventListener('focusout', function () { paused = false; });
-		['click'].forEach(function (ev) {
-			box.addEventListener(ev, function (e) {
-				if (e.target.closest('.rv-b, .rv-d')) play(); /* restart the clock after a manual move */
-			});
-		});
-		window.addEventListener('resize', KE.debounce(buildDots, 150));
-		buildDots();
-		play();
+		/* duplicate the set so the CSS marquee loops seamlessly (-50% = one full set) */
+		track.insertAdjacentHTML('beforeend', track.innerHTML.replace(/aria-label="Review/g, 'aria-hidden="true" aria-label="Review'));
 	}
 
 	/* =====================================================

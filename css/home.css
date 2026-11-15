@@ -2637,25 +2637,36 @@ html {
 	}
 }
 
-/* reviews carousel */
+/* reviews: auto-scrolling marquee */
 .rvs {
 	background: var(--paper);
 	padding: 110px 0 120px;
+	overflow: hidden;
 }
-.sr-track {
+.rv {
+	position: relative;
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+	mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.rv-track {
 	display: flex;
 	gap: 20px;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scrollbar-width: none;
-	padding: 6px 2px 14px;
+	width: max-content;
+	padding: 10px 0 18px;
+	animation: rvscroll 60s linear infinite;
+	will-change: transform;
 }
-.sr-track::-webkit-scrollbar {
-	display: none;
+.rv:hover .rv-track,
+.rv:focus-within .rv-track {
+	animation-play-state: paused;
 }
-.sr-c {
-	flex: 0 0 calc((100% - 40px) / 3);
-	scroll-snap-align: start;
+@keyframes rvscroll {
+	to {
+		transform: translateX(calc(-50% - 10px));
+	}
+}
+.rv-c {
+	flex: 0 0 380px;
 	margin: 0;
 	background: var(--cream);
 	border: 1px solid var(--line);
@@ -2664,35 +2675,40 @@ html {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	transition: transform 0.3s, box-shadow 0.3s;
 }
-.sr-s {
+.rv-c:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 36px rgba(26, 15, 12, 0.12);
+}
+.rv-s {
 	display: flex;
 	gap: 3px;
 	color: var(--yellow);
 }
-.sr-s svg {
+.rv-s svg {
 	fill: currentColor;
 }
-.sr-c blockquote {
+.rv-c blockquote {
 	margin: 0;
 	flex: 1;
 	font-size: 17px;
 	line-height: 1.6;
 }
-.sr-c figcaption {
+.rv-c figcaption {
 	display: flex;
 	align-items: center;
 	gap: 12px;
 }
-.sr-c figcaption span:last-child {
+.rv-c figcaption span:last-child {
 	display: flex;
 	flex-direction: column;
 }
-.sr-c figcaption small {
+.rv-c figcaption small {
 	color: var(--mute);
 	font-size: 13px;
 }
-.sr-av {
+.rv-av {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
@@ -2704,97 +2720,27 @@ html {
 	font-weight: 800;
 	font-size: 22px;
 }
-.sr-bar {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 18px;
-	margin-top: 26px;
-}
-.sr-b {
-	width: 48px;
-	height: 48px;
-	border-radius: 50%;
-	border: 2px solid var(--ink);
-	background: transparent;
-	color: var(--ink);
-	display: grid;
-	place-items: center;
-	cursor: pointer;
-	transition:
-		background 0.2s,
-		color 0.2s;
-}
-.sr-b:hover {
-	background: var(--ink);
-	color: #fff;
-}
-.sr-dots {
-	display: flex;
-	gap: 8px;
-}
-.sr-d {
-	width: 10px;
-	height: 10px;
-	padding: 0;
-	border-radius: 50%;
-	border: 0;
-	background: #d9c7ae;
-	cursor: pointer;
-	transition:
-		width 0.25s,
-		background 0.25s;
-}
-.sr-d.on {
-	width: 28px;
-	border-radius: 5px;
-	background: var(--red);
-}
-@media (max-width: 1080px) {
-	.sr-c {
-		flex-basis: calc((100% - 20px) / 2);
-	}
-}
 @media (max-width: 640px) {
 	.rvs {
 		padding: 80px 0 90px;
 	}
-	.sr-c {
-		flex-basis: 100%;
+	.rv-c {
+		flex-basis: 290px;
 	}
 }
-
-.cred {
-	background: var(--cream);
-	padding: 60px 0 70px;
-}
-.cred h2 {
-	font-size: 40px;
-	margin-bottom: 10px;
-}
-.cred p {
-	color: var(--mute);
-	margin-bottom: 14px;
-}
-.cred ul {
-	columns: 2;
-	column-gap: 40px;
-	font-size: 13px;
-	line-height: 1.7;
-	color: var(--mute);
-}
-.cred a {
-	color: var(--red);
-	text-decoration: underline;
-}
-@media (max-width: 640px) {
-	.cred ul {
-		columns: 1;
+@media (prefers-reduced-motion: reduce) {
+	.rv {
+		overflow-x: auto;
+	}
+	.rv-track {
+		animation: none;
 	}
 }
 
 /* scroll reveal (see KE.reveal in js/common.js) */
-.sr{opacity:0;translate:0 var(--rvy,36px);scale:.94}
+.sr{opacity:0;translate:0 var(--rvy,36px);scale:.94;transition:opacity .7s ease var(--d,0ms),translate .8s cubic-bezier(.2,.9,.3,1.1) var(--d,0ms),scale .8s cubic-bezier(.2,.9,.3,1.1) var(--d,0ms)}
+.sec-h.sr .flame{transition:transform .9s cubic-bezier(.2,.9,.3,1.4) .25s;transform:scale(.3) rotate(-25deg)}
+.sec-h.sr.in .flame{transform:none}
 .sr.in{opacity:1;translate:0 0;scale:1}
 .spo-c.sr{transition:opacity .6s ease var(--d,0ms),translate .65s cubic-bezier(.2,.9,.3,1.1) var(--d,0ms),scale .65s cubic-bezier(.2,.9,.3,1.1) var(--d,0ms),transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .35s}
 .mi.sr,.sx .pc.sr{animation:none;transition:opacity .6s ease var(--d,0ms),translate .65s cubic-bezier(.2,.9,.3,1.1) var(--d,0ms),scale .65s cubic-bezier(.2,.9,.3,1.1) var(--d,0ms),transform .3s cubic-bezier(.2,.9,.3,1.2),background .25s,box-shadow .3s}
