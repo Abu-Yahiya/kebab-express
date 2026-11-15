@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Kebab Express | Charcoal-grilled kebabs, fast</title>
+		<meta
+			name="description"
+			content="Charcoal-grilled kebabs, warm lavash and house sauces, served at express speed. Browse the menu, shop online and book a table."
+		/>
+		<meta name="theme-color" content="#1A0F0C" />
+		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Caveat:wght@600&family=DM+Sans:wght@400;500;700&display=swap"
+		/>
+		<link rel="stylesheet" href="css/home.css" />
+	</head>
+	<body>
+		<div class="kx" id="app">
+			<div class="cur-glow" aria-hidden="true"></div>
+			<div class="cur-ring" aria-hidden="true"></div>
+			<div class="cur-dot" aria-hidden="true"></div>
+
+			<!-- HEADER -->
+			<header class="hdr">
+				<div class="wrap hdr-in">
+					<a class="logo" href="index.html#top" aria-label="Kebab Express home">
+						<span class="logo-mark"
+							><svg
+								width="24"
+								height="26"
+								viewBox="0 0 24 26"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path
+									d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z"
+								/></svg
+						></span>
+						<span class="logo-t"><b>Kebab</b><small>Express</small></span>
+					</a>
+					<nav aria-label="Primary">
+						<ul class="nav">
+							<li><a class="nav-l cur" href="index.html#top" data-nav="top">Home</a></li>
+							<li><a class="nav-l" href="shop.html">Menu</a></li>
+							<li><a class="nav-l" href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+							<li><a class="nav-l" href="track.html">Track Order</a></li>
+						</ul>
+					</nav>
+					<div class="hdr-r">
+						<button class="cart-pill" type="button" id="cartOpen" aria-label="Open your cart">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+							<span class="cart-amt" id="cartAmt">€0.00</span>
+							<span class="badge" id="cartCount" hidden>0</span>
+						</button>
+						<a class="btn btn-red" href="#book">Book a table</a>
+						<button
+							class="burger"
+							type="button"
+							aria-label="Open menu"
+							aria-expanded="false"
+							aria-controls="drawer"
+							id="burger"
+						>
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.2"
+								stroke-linecap="round"
+								aria-hidden="true"
+							>
+								<path d="M3 7h18M3 12h18M3 17h18" />
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div class="drawer" id="drawer" hidden>
+					<a href="index.html#top">Home</a><a href="shop.html">Menu</a><a href="index.html#gallery">Gallery</a><a href="track.html">Track Order</a>
+				</div>
+			</header>
+
+			<main>
+				<!-- HERO -->
+				<section class="hero" id="top">
+					<div class="vid" aria-hidden="true">
+						<video
+							class="hero-vid"
+							id="heroVideo"
+							src="assets/video/hero-grill.mp4"
+							autoplay
+							muted
+							loop
+							playsinline
+							preload="auto"
+						></video>
+						<div id="embers"></div>
+					</div>
+					<div class="shade" aria-hidden="true"></div>
+					<div class="wrap hero-in">
+						<span class="script">Grilled over real fire</span>
+						<h1 class="disp">Fast fire.<br /><em>Real</em> flavour.</h1>
+						<p>
+							Charcoal-grilled kebabs, warm lavash and house sauces, served at
+							express speed in four city kitchens.
+						</p>
+						<div class="hero-cta">
+							<a class="btn btn-red" href="#menu">Explore the menu</a>
+							<a class="btn btn-line" href="#book">Book a table</a>
+						</div>
+					</div>
+					<span class="scroll-cue" aria-hidden="true"></span>
+					<div class="facts">
+						<div class="facts-in">
+							<span><i></i>Charcoal-grilled daily</span
+							><span><i></i>Ready in about 10 minutes</span
+							><span><i></i>4 city locations</span
+							><span><i></i>Open until 1 am</span>
+						</div>
+					</div>
+				</section>
+
+				<div class="mq" aria-hidden="true">
+					<div class="mq-t">
+						<span>Adana</span><span>Shish</span><span>Iskender</span
+						><span>Lavash</span><span>Baklava</span><span>Mixed grill</span
+						><span>Ayran</span><span>Künefe</span> <span>Adana</span
+						><span>Shish</span><span>Iskender</span><span>Lavash</span
+						><span>Baklava</span><span>Mixed grill</span><span>Ayran</span
+						><span>Künefe</span>
+					</div>
+				</div>
+
+				<!-- ABOUT / OUR MENU INTRO -->
+				<section class="about" id="about">
+					<div class="wrap about-g">
+						<div class="ph-grid">
+							<div class="plate">
+								<img
+									class="ph"
+									alt="Adana kebab on lavash with grilled tomato"
+									src="assets/img/adana-kebab.jpg"
+									loading="lazy"
+								/><span class="cap">Adana kebab</span>
+							</div>
+							<div class="plate">
+								<img
+									class="ph"
+									alt="Kofta shish plate with grilled vegetables"
+									src="assets/img/kofta-shish.jpg"
+									loading="lazy"
+								/><span class="cap">Kofta shish</span>
+							</div>
+							<div class="plate">
+								<img
+									class="ph"
+									alt="Hummus and falafel with flatbread"
+									src="assets/img/hummus-falafel.jpg"
+									loading="lazy"
+								/><span class="cap">Hummus &amp; falafel</span>
+							</div>
+							<div class="plate">
+								<img
+									class="ph"
+									alt="Grilled king prawn skewers"
+									src="assets/img/grilled-prawns.jpg"
+									loading="lazy"
+								/><span class="cap">Prawn skewers</span>
+							</div>
+						</div>
+						<div class="about-card">
+							<span class="script">Straight off the coals</span>
+							<h2 class="disp">Our menu</h2>
+							<svg
+								class="flame"
+								viewBox="0 0 24 26"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path
+									d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z"
+								/>
+							</svg>
+							<p>
+								Every skewer is hand-cut, marinated overnight and cooked over
+								open charcoal. Browse starters, kebabs, mains and sweets, with
+								the house favourites marked for first-timers.
+							</p>
+							<a class="lnk" href="#menu"
+								>Explore more
+								<svg
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.4"
+									stroke-linecap="round"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" /></svg
+							></a>
+						</div>
+					</div>
+				</section>
+
+				<!-- SPECIAL OFFERS -->
+				<section class="spo" id="offers">
+					<div class="wrap">
+						<div class="sec-h">
+							<span class="script">Bundles worth grabbing</span>
+						<h2 class="disp">Special offers</h2>
+							<svg class="flame" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z" /></svg>
+						</div>
+						<div class="spo-g" id="offerGrid"></div>
+						<div class="how-cta">
+							<a class="btn btn-yel" href="shop.html?tab=offers">See all offers</a>
+						</div>
+					</div>
+				</section>
+
+				<!-- MENU -->
+				<section class="menu" id="menu">
+					<div class="wrap">
+						<div class="sec-h">
+							<span class="script">Pick your fire</span>
+							<h2 class="disp">The menu</h2>
+							<svg
+								class="flame"
+								viewBox="0 0 24 26"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path
+									d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z"
+								/>
+							</svg>
+						</div>
+						<div class="tools">
+							<div
+								class="tabs"
+								role="tablist"
+								aria-label="Menu categories"
+								id="menuTabs"
+							></div>
+							<div class="srch">
+								<svg
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.2"
+									stroke-linecap="round"
+									aria-hidden="true"
+								>
+									<circle cx="11" cy="11" r="7" />
+									<path d="M20 20l-3.5-3.5" />
+								</svg>
+								<input
+									type="search"
+									id="menuSearch"
+									aria-label="Search the menu"
+									placeholder="Search dishes or ingredients"
+								/>
+							</div>
+						</div>
+						<div class="chips" id="menuFilters">
+							<span class="count" id="menuCount" aria-live="polite"></span>
+						</div>
+						<div id="menuOut"></div>
+					</div>
+				</section>
+
+				<!-- HOW IT WORKS -->
+				<section class="how" id="how">
+					<div class="wrap">
+						<div class="sec-h">
+							<span class="script">Four easy steps</span>
+							<h2 class="disp">How it works</h2>
+							<svg class="flame" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z" /></svg>
+						</div>
+						<ol class="how-g" style="list-style: none; padding: 0; margin: 0">
+							<li class="how-c">
+								<span class="how-i"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="how-n">1</span></span>
+								<h3 class="disp">Pick your dishes</h3>
+								<p>Browse the menu or the shop. Pizzas and durum come in sizes, so choose the price option you want.</p>
+							</li>
+							<li class="how-c">
+								<span class="how-i"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="how-n">2</span></span>
+								<h3 class="disp">Add to cart</h3>
+								<p>Tap the + under a price to add it. Your cart total stays in the header and follows you across pages.</p>
+							</li>
+							<li class="how-c">
+								<span class="how-i"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 11h18M7 15h3"/></svg><span class="how-n">3</span></span>
+								<h3 class="disp">Check out</h3>
+								<p>Open the cart, review your order and choose pickup or delivery from any of our kitchens.</p>
+							</li>
+							<li class="how-c">
+								<span class="how-i"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z"/></svg><span class="how-n">4</span></span>
+								<h3 class="disp">We grill, you enjoy</h3>
+								<p>Your order is cooked over charcoal and ready in about 10 minutes. Prefer to sit down? Book a table.</p>
+							</li>
+						</ol>
+						<div class="how-cta">
+							<a class="btn btn-red" href="shop.html">Order now</a>
+							<a class="btn" style="border-color: var(--ink); color: var(--ink)" href="#book">Book a table</a>
+						</div>
+					</div>
+				</section>
+
+				<!-- GALLERY -->
+				<section class="gal" id="gallery">
+					<div class="wrap">
+						<div class="sec-h">
+							<span class="script">Eat with your eyes</span>
+							<h2 class="disp">From our kitchen</h2>
+						</div>
+						<div class="mosaic" id="mosaic"></div>
+						<div class="gal-more">
+							<a class="btn btn-line" href="gallery.html">Show more photos</a>
+						</div>
+					</div>
+				</section>
+				<div
+					class="lb"
+					id="lightbox"
+					role="dialog"
+					aria-modal="true"
+					aria-label="Photo viewer"
+					hidden
+				>
+					<div class="lb-in">
+						<button
+							class="rb lb-x"
+							type="button"
+							id="lbClose"
+							aria-label="Close photo"
+						>
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.4"
+								stroke-linecap="round"
+								aria-hidden="true"
+							>
+								<path d="M5 5l14 14M19 5L5 19" />
+							</svg>
+						</button>
+						<div class="plate"><img class="ph" id="lbImg" alt="" /></div>
+						<div class="lb-bar">
+							<button
+								class="rb"
+								type="button"
+								id="lbPrev"
+								aria-label="Previous photo"
+							>
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.4"
+									stroke-linecap="round"
+									aria-hidden="true"
+								>
+									<path d="M15 5l-7 7 7 7" />
+								</svg>
+							</button>
+							<span id="lbCap"></span>
+							<button
+								class="rb"
+								type="button"
+								id="lbNext"
+								aria-label="Next photo"
+							>
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.4"
+									stroke-linecap="round"
+									aria-hidden="true"
+								>
+									<path d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- REVIEWS -->
+				<section class="rvs" id="reviews">
+					<div class="wrap">
+						<div class="sec-h">
+							<span class="script">Kind words from our tables</span>
+							<h2 class="disp">What guests say</h2>
+							<svg class="flame" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z" /></svg>
+						</div>
+						<div class="rv" role="region" aria-roledescription="carousel" aria-label="Guest reviews">
+							<div class="rv-track" id="rvTrack" tabindex="0"></div>
+							<div class="rv-bar">
+								<button class="rv-b" type="button" id="rvPrev" aria-label="Previous reviews"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg></button>
+								<div class="rv-dots" id="rvDots"></div>
+								<button class="rv-b" type="button" id="rvNext" aria-label="Next reviews"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- LOCATIONS -->
+				<section class="loc" id="locations">
+					<div class="wrap">
+						<div class="sec-h">
+							<span class="script">Find the fire near you</span>
+							<h2 class="disp">Our locations</h2>
+						</div>
+						<div class="loc-g">
+							<div class="bl" id="branchList"></div>
+							<div class="map">
+								<div class="map-in" id="mapIn">
+									<img
+										class="map-img"
+										alt="Map of central London showing our four locations"
+										src="assets/img/map-london.png"
+									/>
+									<span class="map-tint" aria-hidden="true"></span>
+									<span class="mchip"
+										><i></i>4 locations in central London</span
+									>
+									<span class="attr"
+										>©
+										<a
+											href="https://www.openstreetmap.org/copyright"
+											target="_blank"
+											rel="noopener"
+											>OpenStreetMap</a
+										>
+										contributors</span
+									>
+								</div>
+								<div class="map-card">
+									<div>
+										<span class="open"
+											><i></i>Open now · <span id="locHours"></span
+										></span>
+										<h3 class="disp" id="locName"></h3>
+										<p>
+											<span id="locAddr"></span><br /><span id="locTel"></span>
+										</p>
+									</div>
+									<div style="display: flex; gap: 10px; flex-wrap: wrap">
+										<a class="btn btn-red" href="#book" id="locBook"
+											>Book here</a
+										>
+										<a
+											class="btn"
+											style="border-color: var(--ink); color: var(--ink)"
+											href="#locations"
+											id="locDir"
+											target="_blank"
+											rel="noopener"
+											>Get directions</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- BOOKING -->
+				<section class="book" id="book">
+					<div class="wrap bk-g">
+						<div class="ticket" aria-live="polite">
+							<span class="script">Your table ticket</span>
+							<h2 class="disp">Reserve<br />a table</h2>
+							<div class="tk-row">
+								<span>Location</span><b id="tkBranch"></b>
+							</div>
+							<div class="tk-row"><span>Date</span><b id="tkDate"></b></div>
+							<div class="tk-row"><span>Time</span><b id="tkTime"></b></div>
+							<div class="tk-row"><span>Guests</span><b id="tkParty"></b></div>
+							<div class="tk-row"><span>Name</span><b id="tkName"></b></div>
+							<div class="perf">
+								<div class="bar" aria-hidden="true"></div>
+								<span class="stamp" id="tkStamp" hidden>CONFIRMED</span>
+								<b
+									id="tkDraft"
+									style="
+										font-family: 'Barlow Condensed', sans-serif;
+										letter-spacing: 0.1em;
+										opacity: 0.85;
+									"
+									>DRAFT</b
+								>
+							</div>
+						</div>
+
+						<div class="form" id="bookForm">
+							<div class="ok" id="bookOk" hidden>
+								<div class="tick">
+									<svg
+										width="40"
+										height="40"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="3"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										aria-hidden="true"
+									>
+										<path d="M5 12.5l4.5 4.5L19 7" />
+									</svg>
+								</div>
+								<h3 class="disp">Table booked!</h3>
+								<p
+									style="color: var(--mute); max-width: 380px; line-height: 1.6"
+									id="bookOkText"
+								></p>
+								<button class="btn btn-red" type="button" id="bookReset">
+									Make another booking
+								</button>
+							</div>
+							<div id="bookFields" style="display: contents">
+								<div class="fl">
+									<span class="lab">1 · Date</span>
+									<div class="days" id="days"></div>
+								</div>
+								<div class="fl">
+									<span class="lab"
+										>2 · Time
+										<small>(struck-through times are full)</small></span
+									>
+									<div class="slots" id="slots"></div>
+									<p class="err" id="errTime" hidden>Please choose a time.</p>
+								</div>
+								<div class="row2">
+									<div class="fl">
+										<span class="lab">3 · Guests</span>
+										<div class="step">
+											<button
+												type="button"
+												id="partyDown"
+												aria-label="Fewer guests"
+											>
+												−</button
+											><b id="partyText">2 guests</b
+											><button
+												type="button"
+												id="partyUp"
+												aria-label="More guests"
+											>
+												+
+											</button>
+										</div>
+									</div>
+									<div class="fl">
+										<label for="bk-branch">Location</label
+										><select id="bk-branch" class="fld"></select>
+									</div>
+								</div>
+								<div class="row2">
+									<div class="fl">
+										<label for="bk-name">Your name</label
+										><input
+											id="bk-name"
+											class="fld"
+											type="text"
+											autocomplete="name"
+											placeholder="Sara Rahman"
+										/>
+										<p class="err" id="errName" hidden>
+											Please enter your name.
+										</p>
+									</div>
+									<div class="fl">
+										<label for="bk-phone">Phone</label
+										><input
+											id="bk-phone"
+											class="fld"
+											type="tel"
+											autocomplete="tel"
+											placeholder="+44 7700 900123"
+										/>
+										<p class="err" id="errPhone" hidden>
+											Enter a phone number with at least 7 digits.
+										</p>
+									</div>
+								</div>
+								<div class="fl">
+									<label for="bk-mail">Email</label
+									><input
+										id="bk-mail"
+										class="fld"
+										type="email"
+										autocomplete="email"
+										placeholder="you@example.com"
+									/>
+									<p class="err" id="errEmail" hidden>
+										Enter a valid email so we can confirm.
+									</p>
+								</div>
+								<div class="fl">
+									<label for="bk-note"
+										>Special requests <small>(optional)</small></label
+									><textarea
+										id="bk-note"
+										class="fld"
+										placeholder="Birthday, high chair, allergies…"
+									></textarea>
+								</div>
+								<button
+									class="btn btn-red"
+									style="min-height: 56px; font-size: 16px"
+									type="button"
+									id="bookSubmit"
+								>
+									<span class="spin" hidden></span
+									><span id="bookSubmitText">Confirm booking</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			<!-- FOOTER -->
+			<footer class="ft">
+				<div class="wrap">
+					<div class="ft-g">
+						<div>
+							<a
+								class="logo"
+								href="#top"
+								aria-label="Kebab Express home"
+								style="color: #fff"
+							>
+								<span class="logo-mark"
+									><svg
+										width="24"
+										height="26"
+										viewBox="0 0 24 26"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										aria-hidden="true"
+									>
+										<path
+											d="M12 2c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 2 3 1-3 1-6 2-10z"
+										/></svg
+								></span>
+								<span class="logo-t"><b>Kebab</b><small>Express</small></span>
+							</a>
+							<p>
+								Charcoal-grilled kebabs, made fresh and served fast. Come
+								hungry, leave happy.
+							</p>
+							<div class="soc">
+								<a href="#top" aria-label="Facebook"
+									><svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											d="M14 8V6c0-1 .5-1.5 1.5-1.5H17V1h-3c-3 0-4.5 2-4.5 4.5V8H7v3.5h2.5V23H14V11.5h3L17.5 8z"
+										/></svg
+								></a>
+								<a href="#top" aria-label="Instagram"
+									><svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										aria-hidden="true"
+									>
+										<rect x="3" y="3" width="18" height="18" rx="5" />
+										<circle cx="12" cy="12" r="4" />
+										<circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg
+								></a>
+								<a href="#top" aria-label="YouTube"
+									><svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											d="M22 8a3 3 0 0 0-2-2c-2-.5-8-.5-8-.5s-6 0-8 .5A3 3 0 0 0 2 8c-.5 2-.5 4-.5 4s0 2 .5 4a3 3 0 0 0 2 2c2 .5 8 .5 8 .5s6 0 8-.5a3 3 0 0 0 2-2c.5-2 .5-4 .5-4s0-2-.5-4zM10 15V9l5 3z"
+										/></svg
+								></a>
+								<a href="#top" aria-label="TikTok"
+									><svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										aria-hidden="true"
+									>
+										<path d="M14 3v11a4 4 0 1 1-4-4M14 3c0 3 2 5 5 5" /></svg
+								></a>
+							</div>
+						</div>
+						<div>
+							<h4>Overview</h4>
+							<ul>
+								<li><a href="#top">Home</a></li>
+								<li><a href="#menu">Food &amp; Menu</a></li>
+								<li><a href="shop.html">Shop</a></li>
+								<li><a href="#book">Online booking</a></li>
+								<li><a href="#gallery">Gallery</a></li>
+							</ul>
+						</div>
+						<div>
+							<h4>Resources</h4>
+							<ul>
+								<li><a href="#top">Help center</a></li>
+								<li><a href="#top">Terms of service</a></li>
+								<li><a href="#top">Privacy policy</a></li>
+								<li><a href="#top">Allergen guide</a></li>
+							</ul>
+						</div>
+						<div>
+							<h4>Contact info</h4>
+							<ul>
+								<li><a href="tel:+442079460123">+44 20 7946 0123</a></li>
+								<li>
+									<a href="mailto:hello@kebabexpress.example"
+										>hello@kebabexpress.example</a
+									>
+								</li>
+								<li><a href="#top">@kebabexpress</a></li>
+							</ul>
+						</div>
+						<div>
+							<h4>Location</h4>
+							<ul>
+								<li>
+									<a href="#locations"
+										>12 Ember Lane, Old Town, Riverbank City</a
+									>
+								</li>
+								<li><a href="#locations">Open daily 11:00 – 01:00</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="ft-b">
+						<span
+							>© 2026 Kebab Express. Sample content. Photos: Wikimedia Commons
+							(various licences, <a href="gallery.html#credits" style="text-decoration: underline">credits</a>). Map: ©
+							OpenStreetMap contributors. Video: Mixkit.</span
+						>
+						<nav aria-label="Footer">
+							<a href="#top">About</a><a href="#top">Our chef</a
+							><a href="#top">Blog</a><a href="shop.html">Delivery</a>
+						</nav>
+						<a class="top" href="#top" aria-label="Back to top"
+							><svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.4"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M6 15l6-6 6 6" /></svg
+						></a>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+
+		<script src="js/dish-art.js"></script>
+		<script src="js/menu-data.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/cart.js"></script>
+		<script src="js/home.js"></script>
+	</body>
+</html>

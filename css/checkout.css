@@ -1,0 +1,32 @@
+/* Kebab Express: checkout page extras (the rest comes from shop.css) */
+.sx .cxb{padding:44px 0 40px}
+.sx .cxb h1{font-size:76px}
+.sx .cxb .crumb a:hover{text-decoration:underline}
+.sx .cx{padding:0 0 40px;min-height:50vh}
+.sx .cx .stp{margin:32px 0 28px}
+.sx .cx .stp button{display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;font:inherit;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.sx .cx .stp button:hover{color:var(--red)}
+.sx .co-g.solo{grid-template-columns:minmax(0,1fr)}
+.sx .cx-hint{color:var(--mute);font-size:13px}
+.sx .cx-opt{font-weight:500;letter-spacing:0;text-transform:none;color:var(--mute)}
+.sx .cx-note{color:var(--mute);line-height:1.6;font-size:14px}
+.sx .cx-alert{background:#FFF1F2;border:2px solid var(--red);color:var(--red-d);border-radius:12px;padding:12px 16px;font-weight:700;font-size:14px}
+.sx .opt[disabled]{opacity:.55;cursor:not-allowed;transform:none}
+.sx .rv{align-items:flex-start}
+.sx .rv span{min-width:88px}
+.sx .cx-edit{border:0;background:none;color:var(--red);font-weight:700;font-size:13px;text-decoration:underline;cursor:pointer;padding:0 0 0 8px;align-self:center}
+.sx .cx-line{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.sx .cx-line img{width:56px;height:56px;border-radius:12px;object-fit:cover;flex:none}
+.sx .cx-li{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.sx .cx-li small{color:var(--mute);font-size:13px}
+.sx .cx-q{display:flex;align-items:center;gap:6px;margin-top:4px}
+.sx .cx-q button:not(.cx-rm){width:28px;height:28px;border-radius:50%;border:0;background:var(--cream);font-size:16px;font-weight:700;color:var(--ink);cursor:pointer}
+.sx .cx-q button:not(.cx-rm):hover{background:var(--yellow)}
+.sx .cx-q b{min-width:22px;text-align:center;font-size:14px}
+.sx .cx-rm{border:0;background:none;color:var(--red);font-size:12px;font-weight:700;text-decoration:underline;cursor:pointer;margin-left:6px;padding:0}
+.sx .sum{display:flex;justify-content:space-between;font-size:15px}
+.sx .sum.t{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;text-transform:uppercase;border-top:2px solid var(--ink);padding-top:12px;margin-top:4px}
+.sx .cx-done{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.sx .cx-recap{width:100%;max-width:460px;text-align:left}
+.sx .cxp .vc-wrap,.cxp .vc-wrap{display:none}
+@media (max-width:560px){.sx .cxb h1{font-size:56px}}
